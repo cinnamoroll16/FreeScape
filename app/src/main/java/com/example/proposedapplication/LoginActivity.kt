@@ -16,6 +16,7 @@ class LoginActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        //retrieve the data in database
 
         val editTextEmail = findViewById<EditText>(R.id.email)
         val editTextPassword = findViewById<EditText>(R.id.password)
