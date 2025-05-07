@@ -54,6 +54,5 @@ class LoginActivity : Activity() {
             startActivity(intent)
         }
     }
-
     //https://developer.android.com/identity/sign-in/credential-manager-siwg
 }

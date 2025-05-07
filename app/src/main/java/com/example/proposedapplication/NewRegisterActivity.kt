@@ -33,8 +33,30 @@ class NewRegisterActivity : Activity() {
                 return@setOnClickListener
             }
 
-            // 🔽 Call the saving function
-            saveUserToDatabase(firstname, lastname, email, password)
+            // Create Retrofit instance
+            val retrofit = Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:3000/")  // Localhost for emulator or your server's IP for a real device
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+
+            val apiService = retrofit.create(ApiService::class.java)
+
+            val request = RegisterRequest(firstname, lastname, email, password)
+
+            // Call the register endpoint
+            apiService.registerUser(request).enqueue(object : Callback<ApiResponse> {
+                override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(this@NewRegisterActivity, "Registration Successful", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this@NewRegisterActivity, "Error: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
+                    Toast.makeText(this@NewRegisterActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
         }
 
         val btnLogin = findViewById<TextView>(R.id.btn_login)
@@ -44,29 +66,5 @@ class NewRegisterActivity : Activity() {
         }
     }
 
-    private fun saveUserToDatabase(firstname: String, lastname: String, email: String, password: String) {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://your-api-url.com/") // Replace with your working Node.js backend URL
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
 
-        val api = retrofit.create(UserApi::class.java)
-
-        val user = UserModel(firstname, lastname, email, password)
-
-        val call = api.registerUser(user)
-        call.enqueue(object : Callback<Void> {
-            override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                if (response.isSuccessful) {
-                    Toast.makeText(this@NewRegisterActivity, "User registered successfully", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this@NewRegisterActivity, "Registration failed", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<Void>, t: Throwable) {
-                Toast.makeText(this@NewRegisterActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
 }
