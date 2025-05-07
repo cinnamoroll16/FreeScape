@@ -57,13 +57,17 @@ class NewRegisterActivity : Activity() {
                     Toast.makeText(this@NewRegisterActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
                 }
             })
+
         }
+
+
 
         val btnLogin = findViewById<TextView>(R.id.btn_login)
         btnLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
+
     }
 
 

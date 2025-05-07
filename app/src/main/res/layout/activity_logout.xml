@@ -2,64 +2,67 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="20dp"
-    android:alpha="0.94"
-    android:background="#98C10F"
+    android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="20dp"
     tools:context=".LogoutActivity">
 
-    <View
-        android:layout_width="40dp"
-        android:layout_height="4dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="12dp"
-        android:alpha="0.5"
-        android:background="@color/white" />
-
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:text="Logout Account?"
-        android:textColor="@android:color/white"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:layout_margin="24dp"
+        android:background="@drawable/rounded_white_card"
+        android:elevation="8dp"
+        android:gravity="center_horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:text="Are you sure you want to log out this Account?"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="15sp"
-        android:textStyle="italic" />
+        <View
+            android:layout_width="50dp"
+            android:layout_height="5dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_indicator" />
 
-    <Button
-        android:id="@+id/logout_button"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="10dp"
-        android:alpha="1"
-        android:backgroundTint="#1B5E20"
-        android:gravity="center"
-        android:text="Logout"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        tools:ignore="TextSizeCheck" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm Logout"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="10dp"
+            android:gravity="center" />
 
-    <Button
-        android:id="@+id/cancel_button"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:backgroundTint="#ea1f3a"
-        android:gravity="center"
-        android:text="Cancel"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        tools:ignore="TextSizeCheck" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do you really want to sign out from your account?"
+            android:textSize="17sp"
+            android:textColor="#D32F2F"
+            android:textStyle="italic"
+            android:gravity="center"
+            android:layout_marginBottom="30dp" />
+
+        <Button
+            android:id="@+id/logout_button"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#2E7D32"
+            android:text="Logout"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#B71C1C"
+            android:text="Cancel"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 </LinearLayout>

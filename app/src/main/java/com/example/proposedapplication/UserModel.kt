@@ -1,6 +1,6 @@
 package com.example.proposedapplication
 
-data class User(
+data class UserModel(
     val firstname: String,
     val lastname: String,
     val email: String,

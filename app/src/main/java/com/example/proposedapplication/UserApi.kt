@@ -4,13 +4,11 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface UserApi {
-    @POST("register") // Example path, update it based on your backend
+    @POST("/api/register")
     fun registerUser(@Body user: UserModel): Call<Void>
+
+    @POST("/api/login")
+    fun loginUser(@Body user: LoginModel): Call<Void>
 }
-data class UserModel(
-    val firstname: String,
-    val lastname: String,
-    val email: String,
-    val password: String
-)
+
 

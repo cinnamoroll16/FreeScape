@@ -10,4 +10,7 @@
     <color name="green">#89AC46</color>
     <color name="gr1">#1B5E20</color>
     <color name="gr2">#77B254</color>
+    <color name="custom_green">#696969</color>
+    <color name="gray">#696969</color>
+    <color name="soft_green">#abce91</color>
 </resources>
