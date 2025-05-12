@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+
+    <!-- Top Bar Section -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/back"
+            android:contentDescription="Back"
+            app:tint="#1B5E20" />
+
+        <TextView
+            android:id="@+id/topTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Project Details"
+            android:textSize="18sp"
+            android:textColor="#1B5E20"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+    <!-- Scrollable Content Section -->
+    <ScrollView
+        android:id="@+id/detailsScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topBar"
+        android:padding="16dp">
+
+        <!-- Scrollable Linear Layout with Project Information -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_border"
+            android:padding="24dp"
+            android:elevation="4dp">
+
+            <ImageView
+                android:id="@+id/imagePreview"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/banner"
+                android:clipToOutline="true"
+                android:outlineProvider="background"
+                android:background="@drawable/image_rounded_border"
+                android:contentDescription="Landscape Preview"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#C5E1A5"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Section: Project Information Title -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Project Info"
+                android:textColor="#1B5E20"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Project Information Items -->
+            <TextView
+                android:id="@+id/tvYardLength"
+                style="@style/SectionText"
+                android:text="Yard Length:"
+                android:background="@drawable/bg_with_green_border"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/tvYardWidth"
+                style="@style/SectionHeader"
+                android:text="Yard Width:"
+                android:background="@drawable/bg_with_green_border"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/tvSoilType"
+                style="@style/SectionText"
+                android:text="Soil Type:"
+                android:background="@drawable/bg_with_green_border"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/tvFunction"
+                style="@style/SectionText"
+                android:text="Function:"
+                android:background="@drawable/bg_with_green_border"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/tvStyle"
+                style="@style/SectionText"
+                android:text="Style:"
+                android:background="@drawable/bg_with_green_border"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/tvPathType"
+                style="@style/SectionText"
+                android:text="Path Type:"
+                android:background="@drawable/bg_with_green_border"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/tvBudgetRange"
+                style="@style/SectionText"
+                android:text="Budget Range:"
+                android:background="@drawable/bg_with_green_border"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/tvMaintenance"
+                style="@style/SectionText"
+                android:text="Maintenance:"
+                android:background="@drawable/bg_with_green_border"
+                android:layout_marginBottom="10dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

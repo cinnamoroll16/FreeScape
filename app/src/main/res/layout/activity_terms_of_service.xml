@@ -2,109 +2,165 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FAFAFA"
-    android:padding="0dp">
+    tools:context=".TermsActivity">
 
-    <!-- Header / Top App Bar -->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/headerBar"
+        android:id="@+id/headerLayout"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:elevation="4dp"
-        android:padding="12dp"
+        android:layout_height="56dp"
+        android:background="#1B5E20"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/backButton"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/arrowbali"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:contentDescription="Back"
-            app:tint="#333333"
+            app:tint="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/back" />
 
         <TextView
-            android:id="@+id/titleText"
-            android:layout_width="0dp"
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:text="Terms of Service"
+            android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="#212121"
-            android:layout_marginStart="12dp"
-            app:layout_constraintStart_toEndOf="@id/backButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/backButton"
-            app:layout_constraintBottom_toBottomOf="@id/backButton" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/backButton" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Last Updated -->
-    <TextView
-        android:id="@+id/lastUpdated"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/updatedContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Last updated: December 2024"
-        android:textSize="13sp"
-        android:textColor="#757575"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toBottomOf="@id/headerBar"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <!-- Scrollable Content -->
-    <ScrollView
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last updated: May 2025"
+            android:textSize="13sp"
+            android:textColor="#757575"
+            android:fontFamily="sans-serif-medium" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"
+        app:layout_constraintTop_toBottomOf="@id/updatedContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@id/lastUpdated"
-        app:layout_constraintBottom_toTopOf="@id/footerText"
+        android:padding="24dp"
+        android:overScrollMode="always"
+        app:layout_constraintTop_toBottomOf="@id/updatedContainer"
+        app:layout_constraintBottom_toTopOf="@id/buttonContainer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
+            android:orientation="vertical">
 
-            <!-- Example styled TextView section -->
             <TextView
-                style="@style/SectionText"
-                android:text="Welcome to FreeScape! These Terms of Service Terms\ govern your use of the FreeScape application..." />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FreeScape disclaims all warranties, express or implied.
 
-            <TextView style="@style/SectionHeader" android:text="1. Acceptance of Terms" />
-            <TextView style="@style/SectionText" android:text="By using FreeScape, you confirm that you have read, understood..." />
+FreeScape is not liable for any indirect, incidental, or consequential damages arising from your use of the App."
 
-            <TextView style="@style/SectionHeader" android:text="2. User Eligibility" />
-            <TextView style="@style/SectionText" android:text="You must be at least 13 years old..." />
+                android:textColor="#424242"
+                android:textSize="15sp"
+                android:lineSpacingExtra="6dp"
+                android:layout_marginBottom="24dp" />
 
-            <!-- Repeat styling as needed for other sections -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="1. Acceptance of Terms" android:textColor="#2E7D32" android:textSize="17sp" android:textStyle="bold" android:layout_marginBottom="8dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="By using FreeScape, you confirm that you have read, understood, and agreed to these Terms. If you are using the App on behalf of an organization, you represent that you have the authority to bind that organization to these Terms." android:textColor="#424242" android:textSize="15sp" android:lineSpacingExtra="6dp" android:layout_marginBottom="24dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="2. User Eligibility" android:textColor="#2E7D32" android:textSize="17sp" android:textStyle="bold" android:layout_marginBottom="8dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="You must be at least 13 years old to use the App.\nUsers under 18 must have parental or guardian consent. By using the App, you warrant that you meet these eligibility requirements." android:textColor="#424242" android:textSize="15sp" android:lineSpacingExtra="6dp" android:layout_marginBottom="24dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="3. Account Registration" android:textColor="#2E7D32" android:textSize="17sp" android:textStyle="bold" android:layout_marginBottom="8dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="To access certain features, you must register for an account and provide accurate, current, and complete information.\nYou are responsible for maintaining the confidentiality of your account credentials and for all activities under your account.\nNotify FreeScape immediately of any unauthorized use of your account." android:textColor="#424242" android:textSize="15sp" android:lineSpacingExtra="6dp" android:layout_marginBottom="24dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="4. User Responsibilities" android:textColor="#2E7D32" android:textSize="17sp" android:textStyle="bold" android:layout_marginBottom="8dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="You agree to use the App lawfully and ethically.\n\nProhibited actions include:\n- Uploading harmful or illegal content\n- Reverse-engineering or modifying the App\n- Violating intellectual property rights\n\nYou are solely responsible for any designs or content you create using the App." android:textColor="#424242" android:textSize="15sp" android:lineSpacingExtra="6dp" android:layout_marginBottom="24dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="5. Intellectual Property" android:textColor="#2E7D32" android:textSize="17sp" android:textStyle="bold" android:layout_marginBottom="8dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="FreeScape retains all rights, title, and interest in the App, including software, designs, and trademarks.\n\nUser-generated content remains your property, but you grant FreeScape a non-exclusive, worldwide license to use, display, and distribute such content for App functionality." android:textColor="#424242" android:textSize="15sp" android:lineSpacingExtra="6dp" android:layout_marginBottom="24dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="6. Privacy Policy" android:textColor="#2E7D32" android:textSize="17sp" android:textStyle="bold" android:layout_marginBottom="8dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Your use of the App is also governed by our Privacy Policy, which explains how we collect, use, and protect your data. By using the App, you consent to such practices." android:textColor="#424242" android:textSize="15sp" android:lineSpacingExtra="6dp" android:layout_marginBottom="24dp" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="7. Subscription and Payments"
+                android:textColor="#2E7D32"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="FreeScape may offer subscription plans with recurring fees. By subscribing, you authorize automatic payments until cancellation.\n\nFees are non-refundable unless required by law." android:textColor="#424242" android:textSize="15sp" android:lineSpacingExtra="6dp" android:layout_marginBottom="24dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="8. Termination" android:textColor="#2E7D32" android:textSize="17sp" android:textStyle="bold" android:layout_marginBottom="8dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="FreeScape reserves the right to suspend or terminate your account for violations of these Terms, with or without notice." android:textColor="#424242" android:textSize="15sp" android:lineSpacingExtra="6dp" android:layout_marginBottom="24dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="9. Disclaimers and Limitation of Liability" android:textColor="#2E7D32" android:textSize="17sp" android:textStyle="bold" android:layout_marginBottom="8dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="FreeScape disclaims all warranties, express or implied.\n\nFreeScape is not liable for any indirect, incidental, or consequential damages arising from your use of the App." android:textColor="#424242" android:textSize="15sp" android:lineSpacingExtra="6dp" android:layout_marginBottom="24dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="10. Changes to Terms" android:textColor="#2E7D32" android:textSize="17sp" android:textStyle="bold" android:layout_marginBottom="8dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="FreeScape may modify these Terms at any time. Continued use of the App after changes constitutes acceptance of the revised Terms." android:textColor="#424242" android:textSize="15sp" android:lineSpacingExtra="6dp" android:layout_marginBottom="24dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="11. Governing Law" android:textColor="#2E7D32" android:textSize="17sp" android:textStyle="bold" android:layout_marginBottom="8dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="These Terms are governed by the laws of the Philippines. Any disputes shall be resolved in the courts of Cebu City." android:textColor="#424242" android:textSize="15sp" android:lineSpacingExtra="6dp" android:layout_marginBottom="24dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="12. Contact Us" android:textColor="#2E7D32" android:textSize="17sp" android:textStyle="bold" android:layout_marginBottom="8dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="For questions about these Terms, contact us at:\n\nEmail: support@freescape.com\n\nAddress: University of Cebu-Banilad, Gov. Cuenco Ave., Banilad, Cebu City, Philippines" android:textColor="#424242" android:textSize="15sp" android:lineSpacingExtra="6dp" android:layout_marginBottom="24dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="By using FreeScape, you acknowledge that you have read, understood, and agreed to these Terms of Service." android:textColor="#424242" android:textSize="15sp" android:textStyle="italic" android:lineSpacingExtra="6dp" android:layout_marginTop="24dp" android:layout_marginBottom="8dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="FreeScape Team\nDecember 2024" android:textColor="#757575" android:textSize="13sp" android:gravity="center" android:layout_marginBottom="24dp" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-    <!-- Footer -->
-    <TextView
-        android:id="@+id/footerText"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="© 2024 FreeScape"
-        android:textSize="12sp"
-        android:textColor="#9E9E9E"
+        android:orientation="horizontal"
         android:gravity="center"
-        android:padding="12dp"
+        android:background="#FAFAFA"
+        android:padding="16dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/agreeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agree"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="16dp"
+            android:backgroundTint="#2E7D32" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

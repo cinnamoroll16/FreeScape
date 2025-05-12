@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background (center area) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent"/> <!-- Or white, if you prefer -->
+            <corners android:radius="25dp" />
+        </shape>
+    </item>
+
+    <!-- Left Side Highlight -->
+    <item android:left="0dp" android:right="90%p">
+        <shape android:shape="rectangle">
+            <solid android:color="#99e686"/>
+        </shape>
+    </item>
+
+    <!-- Right Side Highlight -->
+    <item android:left="90%p" android:right="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#99e686"/>
+        </shape>
+    </item>
+</layer-list>

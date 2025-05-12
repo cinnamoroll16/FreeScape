@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
+
     android:background="#FAFAFA"
-    tools:context=".Activity_New_Premium_Plan">
+    tools:context=".Activity_New_Password">
 
     <ImageView
         android:id="@+id/backArrow"
@@ -49,6 +50,7 @@
             android:padding="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:gravity="center_horizontal">
 
             <TextView
@@ -74,10 +76,10 @@
 
             <Button
                 android:id="@+id/subscribedButton"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginBottom="25dp"
-                app:backgroundTint="@color/gray"
+                android:backgroundTint="@color/gray"
                 android:enabled="false"
                 android:text="Subscribed"
                 android:textColor="#FFFFFF"

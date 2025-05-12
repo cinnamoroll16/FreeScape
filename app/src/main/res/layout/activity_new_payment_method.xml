@@ -17,7 +17,7 @@
             android:layout_height="36dp"
             android:src="@drawable/back"
             android:contentDescription="Back"
-            app:tint="#2E7D32"
+            android:tint="#000000"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -48,7 +48,7 @@
             <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/freescape"
+                android:src="@drawable/FreeScape"
                 android:layout_marginEnd="12dp" />
 
             <LinearLayout
@@ -186,7 +186,7 @@
                 android:layout_weight="1"
                 android:text="iCloud"
                 android:textColor="#FFFFFF"
-                android:backgroundTint="#4285F4"
+                android:backgroundTint="#1DB954"
                 android:layout_marginStart="8dp" />
         </LinearLayout>
 
