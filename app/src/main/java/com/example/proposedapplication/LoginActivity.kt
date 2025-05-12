@@ -10,8 +10,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import retrofit2.*
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LoginActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +36,13 @@ class LoginActivity : Activity() {
             startActivity(intent)
         }
 
-        // Login button logic
+        forgotPasswordText.setOnClickListener {
+            val intent = Intent(this, Activity_New_Password::class.java)
+            startActivity(intent)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        }
+
+        // ✅ Login button logic (corrected)
         loginButton.setOnClickListener {
             val email = editTextEmail.text.toString().trim()
             val password = editTextPassword.text.toString().trim()
@@ -45,35 +52,28 @@ class LoginActivity : Activity() {
                 return@setOnClickListener
             }
 
-            // 🔽 Call login function here
-            loginUser(email, password)
+            val request = LoginRequest(email, password)
+
+            RetrofitClient.instance.loginUser(request)
+                .enqueue(object : Callback<LoginResponse> {
+                    override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                        if (response.isSuccessful && response.body()?.success == true) {
+                            val user = response.body()?.user
+                            Toast.makeText(this@LoginActivity, "Welcome ${user?.name}", Toast.LENGTH_LONG).show()
+
+                            val intent = Intent(this@LoginActivity, NewDashboardActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        } else {
+                            Toast.makeText(this@LoginActivity, "Invalid credentials", Toast.LENGTH_LONG).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                        Log.e("LOGIN_FAILURE", "Error: ${t.message}")
+                        Toast.makeText(this@LoginActivity, "Login failed: ${t.message}", Toast.LENGTH_LONG).show()
+                    }
+                })
         }
-    }
-
-    private fun loginUser(email: String, password: String) {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://your-api-url.com/") // Replace with your real backend URL
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val api = retrofit.create(UserApi::class.java)
-        val user = LoginModel(email, password)
-
-        api.loginUser(user).enqueue(object : Callback<Void> {
-            override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                if (response.isSuccessful) {
-                    Toast.makeText(this@LoginActivity, "Login successful!", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this@LoginActivity, NewDashboardActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                } else {
-                    Toast.makeText(this@LoginActivity, "Invalid credentials", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<Void>, t: Throwable) {
-                Toast.makeText(this@LoginActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
     }
 }

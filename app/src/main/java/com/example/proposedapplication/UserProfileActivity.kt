@@ -45,7 +45,7 @@ class UserProfileActivity : Activity() {
 
 
         subscription.setOnClickListener {
-            startActivity(Intent(this, Activity_New_Premium_Plan::class.java))
+            startActivity(Intent(this, Activity_Premium_Plan::class.java))
         }
 
         deactivateAccount.setOnClickListener {

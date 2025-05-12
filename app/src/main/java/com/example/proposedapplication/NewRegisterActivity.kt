@@ -18,57 +18,46 @@ class NewRegisterActivity : Activity() {
         val registerButton = findViewById<Button>(R.id.btn_register)
 
         registerButton.setOnClickListener {
-            val etFirstname = findViewById<EditText>(R.id.et_firstname)
-            val etLastname = findViewById<EditText>(R.id.et_lastname)
-            val etEmail = findViewById<EditText>(R.id.et_email)
-            val etPassword = findViewById<EditText>(R.id.et_password)
-
-            val firstname = etFirstname.text.toString()
-            val lastname = etLastname.text.toString()
-            val email = etEmail.text.toString()
-            val password = etPassword.text.toString()
+            val firstname = findViewById<EditText>(R.id.et_firstname).text.toString()
+            val lastname = findViewById<EditText>(R.id.et_lastname).text.toString()
+            val email = findViewById<EditText>(R.id.et_email).text.toString()
+            val password = findViewById<EditText>(R.id.et_password).text.toString()
 
             if (firstname.isEmpty() || lastname.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Create Retrofit instance
-            val retrofit = Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:3000/")  // Localhost for emulator or your server's IP for a real device
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+            val fullName = "$firstname $lastname"
+            val request = RegisterRequest(fullName, email, password)
 
-            val apiService = retrofit.create(ApiService::class.java)
-
-            val request = RegisterRequest(firstname, lastname, email, password)
-
-            // Call the register endpoint
-            apiService.registerUser(request).enqueue(object : Callback<ApiResponse> {
-                override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
-                    if (response.isSuccessful) {
-                        Toast.makeText(this@NewRegisterActivity, "Registration Successful", Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(this@NewRegisterActivity, "Error: ${response.message()}", Toast.LENGTH_SHORT).show()
+            RetrofitClient.instance.registerUser(request)
+                .enqueue(object : Callback<RegisterResponse> {
+                    override fun onResponse(
+                        call: Call<RegisterResponse>,
+                        response: Response<RegisterResponse>
+                    ) {
+                        if (response.isSuccessful && response.body()?.success == true) {
+                            Toast.makeText(this@NewRegisterActivity, "Registered successfully!", Toast.LENGTH_LONG).show()
+                            // Optional: Go to login
+                            startActivity(Intent(this@NewRegisterActivity, LoginActivity::class.java))
+                        } else {
+                            Toast.makeText(this@NewRegisterActivity, "Registration failed", Toast.LENGTH_LONG).show()
+                        }
                     }
-                }
 
-                override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
-                    Toast.makeText(this@NewRegisterActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
-                }
-            })
-
+                    override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                        Toast.makeText(this@NewRegisterActivity, "Error: ${t.message}", Toast.LENGTH_LONG).show()
+                    }
+                })
         }
-
-
 
         val btnLogin = findViewById<TextView>(R.id.btn_login)
         btnLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            Toast.makeText(this, "Register button clicked", Toast.LENGTH_SHORT).show()
         }
 
     }
-
-
 }
