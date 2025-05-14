@@ -1,4 +1,4 @@
-package com.example.proposedapplication
+package com.example.proposedapplication.model
 
 data class LoginRequest(
     val email: String,

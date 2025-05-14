@@ -1,11 +1,17 @@
-package com.example.proposedapplication
+package com.example.proposedapplication.model
 
 // RegisterRequest.kt
 data class RegisterRequest(
-    val name: String,
+    val firstname: String,
+    val lastname: String,
     val email: String,
-    val password: String // optional, if you're saving it
+    val password: String
 )
+
+data class RegisterResponse(
+    val message: String
+)
+
 
 
 

@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/background"
+        app:backgroundTint="#2E7D32"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.card.MaterialCardView
@@ -70,7 +70,7 @@
         android:fillViewport="true">
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="350dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
             app:cardCornerRadius="20dp"
@@ -98,7 +98,7 @@
                         android:id="@+id/tv_yard_width"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Yard Width\n15 meters"
+                        android:text="Yard Width"
                         android:textColor="#212121"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -269,6 +269,7 @@
 
         <com.google.android.material.button.MaterialButton
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:id="@+id/edit_details"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginEnd="8dp"
@@ -280,6 +281,7 @@
             app:strokeColor="#2E7D32" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/workspace"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="8dp"

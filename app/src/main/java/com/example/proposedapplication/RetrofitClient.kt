@@ -1,14 +1,25 @@
-package com.example.proposedapplication
+package com.example.proposedapplication.api
 
+import com.example.proposedapplication.GCashApi
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
-    val instance: ApiService by lazy {
+    private const val BASE_URL = "http://192.168.150.60:3000/"
+
+    val apiService: ApiService by lazy {
         Retrofit.Builder()
-            .baseUrl("http://192.168.1.3:3000/")
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiService::class.java)
+    }
+
+    val instance: GCashApi by lazy {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        retrofit.create(GCashApi::class.java)
     }
 }

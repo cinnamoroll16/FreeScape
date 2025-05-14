@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA"
+    tools:context=".CountryActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="#2E7D32"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="34dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:contentDescription="Back"
+            app:tint="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="Select Country"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/backButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/searchLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxStrokeColor="#2E7D32"
+        app:boxStrokeWidth="1dp"
+        app:boxStrokeWidthFocused="2dp"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/searchCountry"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:drawablePadding="12dp"
+            android:hint="Search country"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#212121"
+            android:textColorHint="#9E9E9E"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/searchLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:divider="?android:attr/dividerVertical"
+            android:showDividers="middle"
+            android:dividerPadding="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="12dp"
+                android:gravity="center_vertical"
+                android:background="?android:attr/selectableItemBackground">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/flag_au" android:contentDescription="Flag" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Australia" android:textSize="16sp" android:textColor="#424242" android:layout_marginStart="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingVertical="12dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="Flag"
+                    android:src="@drawable/flag_br" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="Brazil"
+                    android:textColor="#424242"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingVertical="12dp" android:gravity="center_vertical" android:background="?android:attr/selectableItemBackground">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/flag_ca" android:contentDescription="Flag" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Canada" android:textSize="16sp" android:textColor="#424242" android:layout_marginStart="12dp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingVertical="12dp" android:gravity="center_vertical" android:background="?android:attr/selectableItemBackground">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/flag_ch" android:contentDescription="Flag" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="China" android:textSize="16sp" android:textColor="#424242" android:layout_marginStart="12dp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingVertical="12dp" android:gravity="center_vertical" android:background="?android:attr/selectableItemBackground">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/flag_fr" android:contentDescription="Flag" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="France" android:textSize="16sp" android:textColor="#424242" android:layout_marginStart="12dp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingVertical="12dp" android:gravity="center_vertical" android:background="?android:attr/selectableItemBackground">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/flag_de" android:contentDescription="Flag" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Germany" android:textSize="16sp" android:textColor="#424242" android:layout_marginStart="12dp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingVertical="12dp" android:gravity="center_vertical" android:background="?android:attr/selectableItemBackground">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/flag_in" android:contentDescription="Flag" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="India" android:textSize="16sp" android:textColor="#424242" android:layout_marginStart="12dp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingVertical="12dp" android:gravity="center_vertical" android:background="?android:attr/selectableItemBackground">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/flag_id" android:contentDescription="Flag" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Indonesia" android:textSize="16sp" android:textColor="#424242" android:layout_marginStart="12dp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingVertical="12dp" android:gravity="center_vertical" android:background="?android:attr/selectableItemBackground">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/flag_it" android:contentDescription="Flag" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Italy" android:textSize="16sp" android:textColor="#424242" android:layout_marginStart="12dp" />
+            </LinearLayout>
+
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingVertical="12dp" android:gravity="center_vertical" android:background="?android:attr/selectableItemBackground">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/flag_jp" android:contentDescription="Flag" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Japan" android:textSize="16sp" android:textColor="#424242" android:layout_marginStart="12dp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingVertical="12dp" android:gravity="center_vertical" android:background="?android:attr/selectableItemBackground">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/flag_mx" android:contentDescription="Flag" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Mexico" android:textSize="16sp" android:textColor="#424242" android:layout_marginStart="12dp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingVertical="12dp" android:gravity="center_vertical" android:background="?android:attr/selectableItemBackground">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/flag_ph" android:contentDescription="Flag" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Philippines" android:textSize="16sp" android:textColor="#424242" android:layout_marginStart="12dp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingVertical="12dp" android:gravity="center_vertical" android:background="?android:attr/selectableItemBackground">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/flag_sk" android:contentDescription="Flag" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="South Korea" android:textSize="16sp" android:textColor="#424242" android:layout_marginStart="12dp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingVertical="12dp" android:gravity="center_vertical" android:background="?android:attr/selectableItemBackground">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/flag_es" android:contentDescription="Flag" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Spain" android:textSize="16sp" android:textColor="#424242" android:layout_marginStart="12dp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingVertical="12dp" android:gravity="center_vertical" android:background="?android:attr/selectableItemBackground">
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/flag_uk" android:contentDescription="Flag" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="United Kingdom" android:textSize="16sp" android:textColor="#424242" android:layout_marginStart="12dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
