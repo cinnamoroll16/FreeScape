@@ -4,13 +4,11 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
 
 class SettingActivity : Activity() {
@@ -32,18 +30,66 @@ class SettingActivity : Activity() {
             finish()
         }
 
+        // User Profile button click event
+        userProfileButton.setOnClickListener {
+            Toast.makeText(this, "Opening User Profile...", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, UserProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        // TODO: Notification button click event
+
         // Dev button click event
         devButton.setOnClickListener {
             Toast.makeText(this, "Opening Developer Options...", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, NewDeveloper1::class.java)
             startActivity(intent)
         }
+        //country
+        val countrybutton = findViewById<LinearLayout>(R.id.country)
+        countrybutton.setOnClickListener {
+            Toast.makeText(this, "Opening Country Options...", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, CountryActivity::class.java)
+            startActivity(intent)
+        }
+        // Set the click listener for the privacy
+        val privacyLayout = findViewById<LinearLayout>(R.id.privacy)
+        privacyLayout.setOnClickListener {
+            Toast.makeText(this, "Opening Privacy Policy...", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, PrivacyActivity::class.java)
+            startActivity(intent)
+        }
+        // Set the click listener for the preferences
+        val preferencesLayout = findViewById<LinearLayout>(R.id.preferences)
+        preferencesLayout.setOnClickListener {
+            Toast.makeText(this, "Opening Privacy Preferences...", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, PreferencesActivity::class.java)
+            startActivity(intent)
+        }
 
-        // User Profile button click event
-        userProfileButton.setOnClickListener {
-            Toast.makeText(this, "Opening User Profile...", Toast.LENGTH_SHORT).show()
 
-            val intent = Intent(this, UserProfileActivity::class.java)
+        // Set the click listener for the subscription
+        val subscriptionLayout = findViewById<LinearLayout>(R.id.subscription)
+        subscriptionLayout.setOnClickListener {
+            Toast.makeText(this, "Opening Premium Plans...", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, Activity_Classic_Plan::class.java)
+            startActivity(intent)
+        }
+
+        // Set the click listener for the terms
+        val termsLayout = findViewById<LinearLayout>(R.id.terms)
+        termsLayout.setOnClickListener {
+            Toast.makeText(this, "Opening Terms of Service...", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, Activity_Terms_of_Service::class.java)
+            startActivity(intent)
+        }
+
+        // Set the click listener for the about section
+        val aboutLayout = findViewById<LinearLayout>(R.id.about)
+        aboutLayout.setOnClickListener {
+            Toast.makeText(this, "Opening About Page...", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, AboutActivity::class.java)
             startActivity(intent)
         }
 

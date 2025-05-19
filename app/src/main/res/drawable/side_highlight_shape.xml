@@ -9,14 +9,14 @@
     </item>
 
     <!-- Left Side Highlight -->
-    <item android:left="0dp" android:right="90%p">
+    <item android:left="0dp" android:right="90dp">
         <shape android:shape="rectangle">
             <solid android:color="#99e686"/>
         </shape>
     </item>
 
     <!-- Right Side Highlight -->
-    <item android:left="90%p" android:right="0dp">
+    <item android:left="90dp" android:right="0dp">
         <shape android:shape="rectangle">
             <solid android:color="#99e686"/>
         </shape>

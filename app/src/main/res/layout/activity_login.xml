@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/background">
+        android:background="#2E7D32">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,9 +49,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
         android:elevation="12dp"
         app:cardCornerRadius="0dp"
         app:cardBackgroundColor="@android:color/white">
@@ -76,7 +72,7 @@
                 app:boxStrokeColor="#1B5E20">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/username"
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:hint="Username"
@@ -110,13 +106,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:orientation="horizontal"
-                android:gravity="start|end">
+                android:gravity="center_vertical">
 
-
-            <CheckBox
+                <CheckBox
                     android:id="@+id/remember_me"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="Remember me"
                     android:textColor="@android:color/black"
                     android:fontFamily="sans-serif" />
@@ -128,10 +124,16 @@
                     android:text="Forgot password?"
                     android:textColor="#166d18"
                     android:textStyle="bold"
-                    android:layout_marginStart="115dp"
                     android:fontFamily="sans-serif"
                     android:clickable="true"
-                    android:focusable="true" />
+                    android:focusable="true"
+                    android:minHeight="48dp"
+                    android:minWidth="48dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp" />
+
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
@@ -160,15 +162,16 @@
                     android:fontFamily="sans-serif" />
 
                 <TextView
-                    android:id="@+id/btn_sign_up"
+                    android:id="@+id/btn_register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="sans-serif"
                     android:text=" Sign Up"
                     android:textColor="#166d18"
                     android:textStyle="bold"
-                    android:fontFamily="sans-serif"
-                    android:clickable="true"
-                    android:focusable="true" />
+                    tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
 
             <LinearLayout
@@ -213,25 +216,27 @@
                     android:id="@+id/btn_google_login"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_weight="1"
                     android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
                     android:background="@drawable/bg_social_button"
-                    android:src="@drawable/googleicon"
                     android:contentDescription="Google Sign In"
+                    android:padding="10dp"
                     android:scaleType="centerInside"
-                    android:padding="10dp" />
+                    android:src="@drawable/googleicon"
+                    tools:ignore="TouchTargetSizeCheck" />
 
                 <ImageButton
                     android:id="@+id/btn_facebook_login"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_weight="1"
                     android:layout_marginStart="8dp"
+                    android:layout_weight="1"
                     android:background="@drawable/bg_social_button"
-                    android:src="@drawable/fbicon"
                     android:contentDescription="Facebook Sign In"
+                    android:padding="10dp"
                     android:scaleType="centerInside"
-                    android:padding="10dp" />
+                    android:src="@drawable/fbicon"
+                    tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

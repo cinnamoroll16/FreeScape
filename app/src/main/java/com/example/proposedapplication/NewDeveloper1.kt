@@ -3,38 +3,36 @@ package com.example.proposedapplication
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ListView
-import com.example.proposedapplication.adapter.DeveloperAdapter
-import com.example.proposedapplication.data.Developer
+import androidx.cardview.widget.CardView
 
 class NewDeveloper1 : Activity() {
-    private lateinit var developersList: ListView
-    private lateinit var btnDevBack: Button
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_developer1)
 
-        // Initialize views
-        developersList = findViewById(R.id.developers_list)
-        btnDevBack = findViewById(R.id.btn_devback)
+        val cardDeveloper1 = findViewById<CardView>(R.id.cardDeveloper1)
+        val cardDeveloper2 = findViewById<CardView>(R.id.cardDeveloper2)
+        val cardDeveloper3 = findViewById<CardView>(R.id.cardDeveloper3)
+        val cardDeveloper4 = findViewById<CardView>(R.id.cardDeveloper4)
 
-        // Create developer list
-        val developers = listOf(
-            Developer("ADRIANE LORENZ RACAZA", R.drawable.racaza),
-            Developer("SANDARRA DUMANACAL", R.drawable.darra),
-            Developer("ANGELICA SABELLAGA", R.drawable.angel2),
-            Developer("MARY JESSA DAÑO", R.drawable.jessa)
-        )
+        cardDeveloper1.setOnClickListener {
+            val intent = Intent(this, NewDeveloper1Details::class.java)
+            startActivity(intent)
+        }
 
-        // Set up adapter
-        val adapter = DeveloperAdapter(this, developers)
-        developersList.adapter = adapter
+        cardDeveloper2.setOnClickListener {
+            val intent = Intent(this, NewDeveloper2Details::class.java)
+            startActivity(intent)
+        }
 
-        // Set up back button
-        btnDevBack.setOnClickListener {
-            finish()
+        cardDeveloper3.setOnClickListener {
+            val intent = Intent(this, NewDeveloper3Details::class.java)
+            startActivity(intent)
+        }
+
+        cardDeveloper4.setOnClickListener {
+            val intent = Intent(this, NewDeveloper4Details::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1057515726295",
+    "project_id": "freescape-755f0",
+    "storage_bucket": "freescape-755f0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057515726295:android:9b373e91b6c04b00c45792",
+        "android_client_info": {
+          "package_name": "com.example.proposedapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057515726295-oq8c44hfku00n6at6ijcereu21agtc85.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.proposedapplication",
+            "certificate_hash": "6f76511993e0bc46a6207cf3c9db5fff5c44e599"
+          }
+        },
+        {
+          "client_id": "1057515726295-r98emlnneuebrjpe9uvfta90h33148b5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqc0m_v4GfW8uV-fWpuZO0znTYNpwjsVo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057515726295-r98emlnneuebrjpe9uvfta90h33148b5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

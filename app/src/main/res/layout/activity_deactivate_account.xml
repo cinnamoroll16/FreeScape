@@ -1,91 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF5F5"
     android:padding="24dp">
 
-    <!-- Card Container -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical"
-        android:padding="24dp"
-        android:elevation="6dp"
-        android:gravity="center_horizontal">
+        android:padding="32dp"
+        android:background="@drawable/deactivate_card_background"
+        android:elevation="8dp"
+        android:gravity="center_horizontal"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:layout_margin="16dp"
+        android:scrollbars="vertical">
 
-        <!-- Trash Icon -->
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
             android:src="@drawable/bin"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="#D32F2F"
+            android:contentDescription="Warning Icon" />
 
-        <!-- Warning Title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="WARNING:"
-            android:textColor="#C62828"
-            android:textSize="22sp"
+            android:textColor="#D32F2F"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:letterSpacing="0.05" />
 
-        <!-- Deactivation Title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ACCOUNT\nDEACTIVATION"
             android:textColor="#B71C1C"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="20dp"
+            android:lineSpacingExtra="4sp"
+            android:letterSpacing="0.03" />
 
-        <!-- Description -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="All activity logs and subscriptions will be permanently deleted. This action cannot be undone!"
-            android:textColor="#880E4F"
-            android:textSize="14sp"
+            android:textColor="#6A1B9A"
+            android:textSize="15sp"
             android:gravity="center"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:lineSpacingExtra="2sp"
+            android:letterSpacing="0.02" />
 
-        <!-- Confirm Question -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Are you sure you want to continue?"
             android:textColor="#424242"
-            android:textSize="14sp"
+            android:textSize="15sp"
             android:gravity="center"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="32dp"
+            android:letterSpacing="0.02" />
 
-        <!-- Buttons -->
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_proceed"
             android:layout_width="250dp"
-            android:layout_height="48dp"
+            android:layout_height="56dp"
             android:text="Proceed"
             android:textAllCaps="false"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#9E9E9E"
+            app:backgroundTint="#D32F2F"
+            app:cornerRadius="10dp"
+            app:iconGravity="textStart"
+            app:rippleColor="#FFCDD2"
             android:layout_marginBottom="16dp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_cancel"
             android:layout_width="250dp"
-            android:layout_height="48dp"
+            android:layout_height="56dp"
             android:text="Cancel"
             android:textAllCaps="false"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#D32F2F" />
-
+            android:textColor="#D32F2F"
+            app:backgroundTint="#FFEBEE"
+            app:cornerRadius="10dp"
+            app:iconGravity="textStart"
+            app:rippleColor="#FFCDD2" />
     </LinearLayout>
 </RelativeLayout>

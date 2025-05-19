@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <!-- Background fill color -->
+    <solid android:color="#A5D6A7" />  <!-- Light green fill, you can change the color -->
+
+    <!-- Optional border (stroke) -->
+    <stroke
+        android:width="3dp"
+        android:color="#388E3C" />  <!-- Darker green border -->
+
+</shape>

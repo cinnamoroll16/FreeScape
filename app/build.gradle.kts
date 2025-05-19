@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("com.google.gms.google-services") version "4.4.0" apply false
 }
 
 android {
@@ -36,11 +37,16 @@ android {
     buildToolsVersion = "34.0.0"
 }
 
+
+
 dependencies {
+    implementation("com.google.android.gms:play-services-auth:21.0.0") // Google Sign-In
+    implementation("com.google.firebase:firebase-auth:22.3.0") // Firebase Authentication
     implementation ("com.android.volley:volley:1.2.1")
     implementation ("com.google.android.material:material:1.6.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.google.code.gson:gson:2.8.9")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -53,3 +59,4 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+apply(plugin = "com.google.gms.google-services")

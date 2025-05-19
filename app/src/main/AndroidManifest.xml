@@ -17,10 +17,58 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Activity_Classic_Plan"
+            android:name=".CountryActivity"
             android:exported="false" />
         <activity
-            android:name=".data.Activity_Classic_Plans"
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".NewTwoDimActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NewVirtualActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_ProjectView"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_ProjectHistory"
+            android:exported="false" />
+        <activity
+            android:name=".NewDeveloper1"
+            android:exported="false" />
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DeactiveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NewTutorialsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PreferencesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PrivacyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LogoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Terms_of_Service"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Classic_Plan"
             android:exported="false" />
         <activity
             android:name=".Activity_Premium_Plan"
@@ -28,6 +76,15 @@
             android:theme="@style/Theme.ProposedApplication" />
         <activity
             android:name=".Activity_New_Password"
+            android:exported="false" />
+        <activity
+            android:name=".NewClientFinderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NewCreationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NewCreationDetails"
             android:exported="false" />
         <activity
             android:name=".Upload_id"
@@ -48,13 +105,10 @@
             android:name=".NewDeveloper1Details"
             android:exported="false" />
         <activity
-            android:name=".NewDeveloper1"
+            android:name=".Activity_New_PaymentMethod"
             android:exported="false" />
         <activity
-            android:name=".NewCreationDetails"
-            android:exported="false" />
-        <activity
-            android:name=".NewCreationActivity"
+            android:name=".ForgotPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".NewDashboardActivity"
@@ -67,16 +121,10 @@
             android:name=".SettingActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".PaymentWebViewActivity"
+            android:exported="false" />
         <activity
-            android:name=".LogoutActivity"
+            android:name=".LandingPageActivity"
             android:exported="false" />
     </application>
 
